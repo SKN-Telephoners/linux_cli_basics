@@ -120,12 +120,12 @@ Komenda `cat` pozwala również wyświetlać zawartość pliku z numeracją lini
 > Sprawdź w `man cat` jaką flagę należy użyć aby wyświetlić plik wraz z numeracją linii i sprawdź jak to wygląda.
 
 ## Operacje na plikach - Zadania
-### Zad 1 - Lista plików
+### Zad 1 - lista plików
 Stwórz plik info.txt w bieżącym katalogu. Zapisz w nim listę wszystkich plików w bieżącym katalogu, w tym ukrytych. Stwórz nowy katalog archive. Skopiuj do niego plik info.txt. Przenieś katalog archive do /tmp.
 
 Komendy: touch, ls, mkdir, cp, mv
 
-### Zad 2 - Archiwizacja
+### Zad 2 - archiwizacja
 Stwórz katalog data. Stwórz w nim 3 pliki tekstowe: data1.txt, data2.txt, data3.txt. Zarchiwizuj katalog data do pliku data_backup.tar. Rozpakuj archiwum do katalogu restored_data.
 
 Komendy: touch, tar, mkdir
@@ -205,11 +205,6 @@ Komendy: cat, grep (-i)
 Poszukaj w katalogu `/etc` plików ze słowem "network" w nazwie. Z wyniku wyświetl tylko pliki mające w nazwie rozszerzenie ".conf" Nie wyświetlaj błędów.
 
 Komendy: find, grep
-
-### Zad 5 - szukanie logów
-Wyszukaj wszystkie pliki o rozszerzeniu .log w katalogu /var/log (używając komendy find) i przekieruj wyniki wyszukiwania do pliku log_files.txt. Sprawdź, czy zawiera wpisy zawierające słowo "error". Jeśli tak, wyciągnij te linie do pliku error_logs.txt. Usuń wpisy z pliku error_logs.txt, które zawierają słowo "debug". Wyświetl zawartość pliku error_logs.txt.
-
-Komendy: find, grep, sed, cat
 
 ## Root, czyli superuser
 
@@ -431,8 +426,13 @@ Skrypt w katalogu domowym, uruchamiający się przy każdym starcie sesji basha.
 
 [Ściąga do zadań](cheat_sheet_1.md#inne)
 
-### Zad 1
+### Zad 1 - pobieranie plików, zamiana słów
 
 Pobierz plik z adresu https://pastebin.com/raw/XQ12Fx4u, odczytując go i zamieniając wszystkie wystąpienia słowa "wimir" na słowo "wiet". 
 
 **Komendy**: nano/vim, chmod, wget/curl, sed, cat
+
+### Zad 2 - szukanie logów
+Wyszukaj wszystkie pliki o rozszerzeniu .log w katalogu /var/log (używając komendy find) i przekieruj wyniki wyszukiwania do pliku log_files.txt. Sprawdź, czy zawiera wpisy zawierające słowo "error". Jeśli tak, wyciągnij te linie do pliku error_logs.txt. Usuń wpisy z pliku error_logs.txt, które zawierają słowo "debug". Wyświetl zawartość pliku error_logs.txt.
+
+Komendy: find, grep, sed, cat
