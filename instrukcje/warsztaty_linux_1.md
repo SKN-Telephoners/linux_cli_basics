@@ -121,7 +121,7 @@ Komenda `cat` pozwala również wyświetlać zawartość pliku z numeracją lini
 
 ## Przetwarzanie potokowe - get piped
 
-Wielką zaletą terminala w Linuxie jest przetwarzanie potokowe. Tłumacząc na ludzki, jest to łączenie ze sobą komend poprzez wzajemne przekazywanie sobie wyników swojej pracy i robienie z nim coś dalej. Na tych warsztatach jedynie "liźniemy" te zagadnienie, dalsza jego część będzie realizowana w ramach następnych warsztatów.
+Wielką zaletą terminala w Linuxie jest przetwarzanie potokowe. Tłumacząc na ludzki, jest to łączenie ze sobą komend poprzez wzajemne przekazywanie sobie wyników swojej pracy i robienie z nim coś dalej. Na tych warsztatach przyjrzmy się podstawą tego zagadnienia, dalsza jego część będzie realizowana w ramach następnych warsztatów.
 
 "Potok" komend tworzymy poprzez połączenie ich operatorami, tworząc długą linijkę przeplatających się komend i operatorów (`komenda operator komenda` itd.)
 Komendy przekazują sobie informacje na wejściu standardowym, wyjściu standardowym i wyjściu błędu (stdin, stdout, stderr).
@@ -131,25 +131,31 @@ Zapoznaj się z częścią podstawowych operatorów.
 
 "Przewijający się czytnik". Czytanie bardzo długich plików komendą `cat` może być dość skomplikowane, less pozwala na wyświetlanie tekstu po którym można poruszać się bardzo prosto i intuicyjnie klawiaturą.
 
-> Stwórz jakikolwiek plik z tekstem. Otwórz go komendą `less nazwapliku`.
+> Stwórz jakikolwiek plik z tekstem. Otwórz go komendą `less nazwa_pliku`.
 
 ### Operator Pipe `|`
 
 Jeśli połączymy dwie komendy tym operatorem, jedna komenda przekaże drugiej wynik swojej pracy. Można to zrozumieć jako zamontowanie na wyjściu pierwszego programu "rury" kierującej się do wejścia drugiego programu.
 
-> Komenda `journalctl` służy do wyświetlania logów systemowych. Wpisz komendę `jounalctl | less` by odczytać je przez czytnik less.
+> Komenda `journalctl` służy do wyświetlania logów systemowych. Wpisz komendę `journalctl | less` by odczytać je przez czytnik less.
 
 ### find
 
-Komenda służąca do szukania plików lub katalogów w systemie. W najbardziej podstawowej formie wymaga podania ścieżki pod którą komenda ma szukać i użycia argumentu `-name` definiującego nazwę (bądź jej część) szukanego pliku/katalogu. Innym użytecznym argumentem jest `-t` (type) do którego można podać m.in "f" (file) lub "d" (directory) oznaczający typ szukanego elementu.
+Komenda służąca do szukania plików lub katalogów w systemie. W najbardziej podstawowej formie wymaga podania ścieżki pod którą komenda ma szukać i użycia argumentu `-name` definiującego nazwę (bądź jej część) szukanego pliku/katalogu. Innym użytecznym argumentem jest `-type` do którego można podać m.in "f" (file) lub "d" (directory) oznaczający typ szukanego elementu.
 
-> Spróbuj wyszukać katalog domowy komendą `find / -name home -type d`, obserwujesz błędy?
+> Spróbuj wyszukać katalog domowy komendą `find / -maxdepth 2 -name home -type d`.
+
+Zauważ wyskakujące błędy spowodowane brakiem uprawnień do przeszukiwania niektórych folderów. W kolejnym rozdziale dowiesz się skąd się biorą i jak ich uniknąć.
+
+> Wprowadź tą samą komendę, ale teraz poprzedź ją słowem `sudo`. Czy błedy dalej występują?
 
 ### Operatory std redirect `1>, 2>`
 
 Pozwalają na przekierowanie konkretnego wyjścia/wejścia. Uprzednio poznałeś operator `>` nadpisujący zawartość pliku wyjściem standardowym z komendy. Oznacza on to samo co `1>` (1=stdout). Bardzo użyteczny jest również operator `2>` (2=stderr) działający w ten sam sposób, jednak pozwalający na przekierowanie wyjścia błędów.
 
-> Plik `/dev/null` to specjalny plik działający jak czarna dziura na wejście standardowe. Ponownie wykonaj komendę find, jednak tym razem przekierowując jej wyjście błędu do /dev/null, `find / -name home -type d 2> /dev/null`, co obserwujesz?
+Plik `/dev/null` to specjalny plik działający jak czarna dziura na wejście standardowe. 
+
+> Ponownie wykonaj komendę find, jednak tym razem przekierowując jej wyjście błędu do /dev/null, `find / -maxdepth 2 -name home -type d 2> /dev/null`, co obserwujesz?
 
 ### grep
 
@@ -167,25 +173,25 @@ Strumieniowy edytor tekstu przystosowany do przetwarzania potokowego. Niezwykle 
 
 ### Zad 1 - tworzenie pliku
 
-Stwórz w katalogu /tmp plik "laurDydaktyka" i wpisz do niego imię swojego ulubionego prowadzącego.
+Stwórz w katalogu `/tmp` plik `laurDydaktyka.txt` i wpisz do niego imię swojego ulubionego wykładowcę/prowadzącego.
 
 Komendy: echo, touch
 
 ### Zad 2 - edytowanie pliku z echo
 
-Przejdź do katalogu domowego, nie używając edytorów tekstowych i nie zmieniając katalogu, dopisz do pliku "laurDydaktyka" imiona dwóch innych ulubionych prowadzących.
+Przejdź do katalogu domowego, nie używając edytorów tekstowych i nie zmieniając katalogu, dopisz do pliku `laurDydaktyka.txt` imiona dwóch innych ulubionych wykładowców/prowadzących.
 
 Komendy: echo
 
 ### Zad 3 - wyszukiwanie tekstu
 
-Odczytaj utworzony plik "laurDydaktyka", znajdź w nim wszystkie linie zawierające literę "w".
+Odczytaj utworzony plik `laurDydaktyka.txt`, znajdź w nim wszystkie linie zawierające literę "w".
 
 Komendy: cat, grep (-i)
 
 ### Zad 4 - przeszukiwanie katalogu
 
-Poszukaj w katalogu /etc plików ze słowem "network" w nazwie. Z wyniku wyświetl tylko pliki mające w nazwie rozszerzenie ".conf" Nie wyświetlaj błędów.
+Poszukaj w katalogu `/etc` plików ze słowem "network" w nazwie. Z wyniku wyświetl tylko pliki mające w nazwie rozszerzenie ".conf" Nie wyświetlaj błędów.
 
 Komendy: find, grep
 
