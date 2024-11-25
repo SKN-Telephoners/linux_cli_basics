@@ -411,6 +411,6 @@ Skrypt w katalogu domowym, uruchamiający się przy każdym starcie sesji basha.
 
 ### Zad 1
 
-Pobierz plik z adresu {INSERTLINK}, odczytując go i zamieniając wszystkie wystąpienia słowa "wimir" na słowo "wiet". Uruchom go.
+Pobierz plik z adresu https://pastebin.com/raw/XQ12Fx4u, odczytując go i zamieniając wszystkie wystąpienia słowa "wimir" na słowo "wiet". Uruchom go.
 
 **Komendy**: nano/vim, chmod, wget, sed, cat
