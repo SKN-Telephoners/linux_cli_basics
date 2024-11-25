@@ -143,13 +143,13 @@ Jeśli połączymy dwie komendy tym operatorem, jedna komenda przekaże drugiej 
 
 Komenda służąca do szukania plików lub katalogów w systemie. W najbardziej podstawowej formie wymaga podania ścieżki pod którą komenda ma szukać i użycia argumentu `-name` definiującego nazwę (bądź jej część) szukanego pliku/katalogu. Innym użytecznym argumentem jest `-t` (type) do którego można podać m.in "f" (file) lub "d" (directory) oznaczający typ szukanego elementu.
 
-> Spróbuj wyszukać katalog domowy komendą `find / -name home -t d`, obserwujesz błędy?
+> Spróbuj wyszukać katalog domowy komendą `find / -name home -type d`, obserwujesz błędy?
 
 ### Operatory std redirect `1>, 2>`
 
 Pozwalają na przekierowanie konkretnego wyjścia/wejścia. Uprzednio poznałeś operator `>` nadpisujący zawartość pliku wyjściem standardowym z komendy. Oznacza on to samo co `1>` (1=stdout). Bardzo użyteczny jest również operator `2>` (2=stderr) działający w ten sam sposób, jednak pozwalający na przekierowanie wyjścia błędów.
 
-> Plik `/dev/null` to specjalny plik działający jak czarna dziura na wejście standardowe. Ponownie wykonaj komendę find, jednak tym razem przekierowując jej wyjście błędu do /dev/null, `find / -name home -t d 2> /dev/null`, co obserwujesz?
+> Plik `/dev/null` to specjalny plik działający jak czarna dziura na wejście standardowe. Ponownie wykonaj komendę find, jednak tym razem przekierowując jej wyjście błędu do /dev/null, `find / -name home -type d 2> /dev/null`, co obserwujesz?
 
 ### grep
 
