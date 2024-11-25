@@ -45,7 +45,7 @@ Further reading:
 - `echo` - Wywołaj tekst do wyjścia standardowego
 - `less` - "Przewijający się" czytnik do plików i wejścia standardowego.
 - `journalctl` - Wyświetl logi systemu.
-- `find` - Znajdź plik, użyteczne argumenty `-t` i `-name`
+- `find` - Znajdź plik, użyteczne argumenty `-type` i `-name`
 - `grep` - Wyszukaj tekst w podanym na wejściu standardowym tekście
 - `sed` - Edytor strumieniowy do przetwarzania tekstu
 
