@@ -185,7 +185,7 @@ Komendy: echo
 
 ### Zad 3 - wyszukiwanie tekstu
 
-Odczytaj utworzony plik `laurDydaktyka.txt`, znajdź w nim wszystkie linie zawierające literę "w".
+Odczytaj utworzony plik `laurDydaktyka.txt`, znajdź w nim wszystkie linie zawierające literę "w" (wielką lub małą).
 
 Komendy: cat, grep (-i)
 
