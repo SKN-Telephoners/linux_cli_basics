@@ -474,3 +474,9 @@ Wyszukaj wszystkie pliki o rozszerzeniu .log w katalogu /var/log (używając kom
 Komendy: find, grep, sed, cat
 
 ***To już wszystko!***
+
+## Ankieta
+
+Zachęcamy do wypełnienia poniższej ankiety o warsztatach:
+
+https://forms.gle/ZjNrAS44tsz7zU6o9
