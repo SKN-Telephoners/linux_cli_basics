@@ -52,7 +52,7 @@ Bash jest podstawowym wierszem poleceń na Linuxie, dzisiaj będziemy się zajmo
 
 ## Nawigacja - Zadania
 
-[Ściąga do zadań](cheat_sheet_1.md#nawigacja)
+[Ściąga do zadań](instrukcje/cheat_sheet_1.md#nawigacja)
 
 ### Zad 1 - /etc nawigacja
 
@@ -72,7 +72,7 @@ komendami i wykonaj ćwiczenia.
 > Jeśli masz problem, pamiętaj o `man` <*nazwa_komendy*>. Znajduję się tam
 > kompletna dokumentacja wybranej przez Ciebie komendy.
 
-[Ściąga do zadań](cheat_sheet_1.md#operacje-na-plikach)
+[Ściąga do zadań](instrukcje/cheat_sheet_1.md#operacje-na-plikach)
 
 ### touch, echo
 
@@ -214,7 +214,7 @@ Strumieniowy edytor tekstu przystosowany do przetwarzania potokowego. Niezwykle 
 
 ## Przetwarzanie potokowe - Zadania
 
-[Ściąga do zadań](cheat_sheet_1.md#przetwarzanie-potokowe)
+[Ściąga do zadań](instrukcje/cheat_sheet_1.md#przetwarzanie-potokowe)
 
 ### Zad 1 - tworzenie pliku
 
@@ -244,7 +244,7 @@ Komendy: find, grep
 
 W systemach Linux, domyślnie istnieje użytkownik **root**, który może wykonywać komendy do których normalni użytkownicy nie mają uprawnień.
 
-[Ściąga do zadań](cheat_sheet_1.md#root-czyli-superuser)
+[Ściąga do zadań](instrukcje/cheat_sheet_1.md#root-czyli-superuser)
 
 > Wpisz komendę `whoami` i sprawdź na jakim użytkowniku jesteś obecnie.
 >
@@ -322,17 +322,17 @@ Następnie w zależności od tego czy chcemy zapisać wprowadzone zmiany, wpisuj
 
 Teraz kiedy już poznaliśmy **root**, czas pobawić się w moderatorów. Każdy plik oraz katalog w systemie Linux ma przypisane **prawa dostępu**.
 
-[Ściąga do zadań](cheat_sheet_1.md#prawa-dostępu-i-zarządzenie-użytkownikami)
+[Ściąga do zadań](instrukcje/cheat_sheet_1.md#prawa-dostępu-i-zarządzenie-użytkownikami)
 
 > Użyj komendy `ls -al` i spójrz na 10-cio zankowe ciągi z lewej strony.
 
 Oto jak należy je czytać:
 
-![alt text](../images/access_rights.png)
+![alt text](images/access_rights.png)
 
 Istnieje również alternatywna, skrócona wersja wyświetlania praw dostępu za pomocą cyfr. Polega ona na przydzieleniu pewnej wartości każdemu prawu, a następnie zsumowanie wszystkic wartości dla użykownika, grupy i innych. Oto jak to działa:
 
-![alt text](../images/access_rights_2.png)
+![alt text](images/access_rights_2.png)
 
 Dodatkowo, spójrz na kolejne informacje wyświetlone przez `ls -al`. Znajdziesz tam między innymi użykownika, który stworzył plik/katalog oraz grupę, do której ten plik/katalog należy.
 
@@ -459,7 +459,7 @@ Skrypt w katalogu domowym, uruchamiający się przy każdym starcie sesji basha.
 
 ## Inne - Zadania
 
-[Ściąga do zadań](cheat_sheet_1.md#inne)
+[Ściąga do zadań](instrukcje/cheat_sheet_1.md#inne)
 
 ### Zad 1 - pobieranie plików, zamiana słów
 
