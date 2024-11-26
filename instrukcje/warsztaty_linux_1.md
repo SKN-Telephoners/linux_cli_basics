@@ -60,6 +60,8 @@ komendami i wykonaj ćwiczenia.
 
 Komenda `echo` służy do wyświetlania linii tekstu. Każdy tekst jest przesyłany do
 **standard output**, który następnie przesyłany jest w wybrane miejsce (np. terminal).
+Aby przesyłać dane tekstowe do pliku, używa się operatora `>`, np. `echo "tekst" > plik.txt`.
+Gdy nie użyjemy tego operatora, tekst zostaje przesłany do terminala.
 
 > Wyświetl na terminalu napis "**Hello World!**".
 
@@ -119,14 +121,28 @@ Komenda `cat` pozwala również wyświetlać zawartość pliku z numeracją lini
 
 > Sprawdź w `man cat` jaką flagę należy użyć aby wyświetlić plik wraz z numeracją linii i sprawdź jak to wygląda.
 
+### tar
+
+W przypadku gdy pracujemy z dużymi plikami, najlepiej jest je skompresować przed wysłaniem w sieci Internet.
+Słuzy do tego komenda `tar`.
+
+Aby skompresować folder, użyj `tar -cf nazwa_archiwum.tar nazwa_folderu`.
+
+Aby rozpakować archiwum do konkretnego folderu, użyj `tar -xf nazwa_archiwum.tar -C nazwa_folderu`.
+
+> Spróbuj znaleźć w `man tar` znaczenie użytych flag.
+
 ## Operacje na plikach - Zadania
+
 ### Zad 1 - lista plików
+
 Stwórz plik info.txt w bieżącym katalogu. Zapisz w nim listę wszystkich plików w bieżącym katalogu, w tym ukrytych. Stwórz nowy katalog archive. Skopiuj do niego plik info.txt. Przenieś katalog archive do /tmp.
 
-Komendy: touch, ls, mkdir, cp, mv
+Komendy: touch, ls -a, mkdir, cp, mv
 
 ### Zad 2 - archiwizacja
-Stwórz katalog data. Stwórz w nim 3 pliki tekstowe: data1.txt, data2.txt, data3.txt. Zarchiwizuj katalog data do pliku data_backup.tar. Rozpakuj archiwum do katalogu restored_data.
+
+Stwórz katalog data. Stwórz w nim 3 pliki tekstowe: data1.txt, data2.txt, data3.txt. Zarchiwizuj katalog data do pliku data_backup.tar.gz. Rozpakuj archiwum do katalogu restored_data.
 
 Komendy: touch, tar, mkdir
 
@@ -142,7 +158,7 @@ Zapoznaj się z częścią podstawowych operatorów.
 
 "Przewijający się czytnik". Czytanie bardzo długich plików komendą `cat` może być dość skomplikowane, less pozwala na wyświetlanie tekstu po którym można poruszać się bardzo prosto i intuicyjnie klawiaturą.
 
-> Stwórz jakikolwiek plik z tekstem. Otwórz go komendą `less nazwa_pliku`.
+> Otwórz plik `example.txt` komendą `less nazwa_pliku`. Aby wyjść z podglądu, użyj `q`.
 
 ### Operator Pipe `|`
 
@@ -164,7 +180,7 @@ Zauważ wyskakujące błędy spowodowane brakiem uprawnień do przeszukiwania ni
 
 Pozwalają na przekierowanie konkretnego wyjścia/wejścia. Uprzednio poznałeś operator `>` nadpisujący zawartość pliku wyjściem standardowym z komendy. Oznacza on to samo co `1>` (1=stdout). Bardzo użyteczny jest również operator `2>` (2=stderr) działający w ten sam sposób, jednak pozwalający na przekierowanie wyjścia błędów.
 
-Plik `/dev/null` to specjalny plik działający jak czarna dziura na wejście standardowe. 
+Plik `/dev/null` to specjalny plik działający jak czarna dziura na wejście standardowe.
 
 > Ponownie wykonaj komendę find, jednak tym razem przekierowując jej wyjście błędu do /dev/null, `find / -maxdepth 2 -name home -type d 2> /dev/null`, co obserwujesz?
 
@@ -214,15 +230,15 @@ W systemach Linux, domyślnie istnieje użytkownik **root**, który może wykony
 
 > Wpisz komendę `whoami` i sprawdź na jakim użytkowniku jesteś obecnie.
 >
->Teraz spróbuj przełączyć użytkownika na wspomnianego wcześniej użytkownika **root**. W tym celu użyj komendy `su` (switch user).
+>Teraz spróbuj przełączyć użytkownika na wspomnianego wcześniej użytkownika **root**. W tym celu użyj komendy `sudo su` (switch user).
 
 Jeśli komenda wykonała się poprawnie, powinineś widzieć nazwę użytkownika przy znaku zachęty. Możesz również użyć `whoami`. Będąc zalogowanym jako **root**, możesz robić wszystkie operacje normalnie niedostępne dla normalnych użytkowników.
 
 **UWAGA**: Ciagłe bycie zalogowanym jako **root** może być niebezpieczne, gdyż łatwo omyłkowo wpisać komendę, która wykona się bez dodatkowego potwierdzenia. Z tego powodu, aby wykonywać komendy wymagające dodatkowych uprawnień, używaj `sudo` przed daną komendą, zamiast logowania się na **root**. Jest to szybsze i bezpieczniejsze.
 
-> Teraz wyloguj się z **root**. Najłatwiej jest to zrobić wpisując komendę `exit`. Następnie spróbuj znów zalogować się na **root**, ale tym razem do komendy `su` dodaj flagę `-p`
+> Teraz wyloguj się z **root**. Najłatwiej jest to zrobić wpisując komendę `exit`. Następnie spróbuj znów zalogować się na **root**, ale tym razem do komendy `sudo su` dodaj flagę `-p`
 
-Czy zauważyłeś jakąś zmianę pomiędzy komendami `su` i `su -p`? Co się zmieniło? Używając `man su`, zobacz za co odpowiada flaga `-p`. Na koniec wyloguj się z użytkownika **root** używając `exit`.
+Czy zauważyłeś jakąś zmianę pomiędzy komendami `sudo su` i `sudo su -p`? Co się zmieniło? Używając `man su`, zobacz za co odpowiada flaga `-p`. Na koniec wyloguj się z użytkownika **root** używając `exit`.
 
 > Następnie znajdź sposób, w jaki możesz sprawdzić listę wszystkich istniejących na systemie użytkowników. **Podpowiedź:** listę użytkowników znajdziesz wyświetlając zawartość jednego z plików systemu w katalogu `/etc` z pomocą komendy `cat`.
 
@@ -356,7 +372,8 @@ Aby utworzyć nową grupę, użyj `sudo groupadd nazwa_grupy`.
 
 > Utwórz grupę `employee` oraz `guest`. Wyświetl istniejące grupy komendą `cat /etc/group`. Czy są tam twoje grupy?
 
-Teraz, gdy masz już grupy, utwórz dwóch użykowników: `employee1` i `guest1`. Służy do tego komenda `sudo useradd nazwa_użytkownika`.
+Teraz, gdy masz już grupy, utwórz dwóch użykowników: `employee1` i `guest1`. Służy do tego komenda `sudo useradd nazwa_użytkownika --no-create-home`.
+Flaga `--no-create-home` sprawia, że nie będzie tworzony katalog home dla tego usera, gdyż go nie potrzebujemy.
 
 > Utwórz użykowników `employee1` i `guest1`. Znajdź nowo utworzonych użytkowników w pliku `/etc/passwd`.
 
@@ -428,11 +445,12 @@ Skrypt w katalogu domowym, uruchamiający się przy każdym starcie sesji basha.
 
 ### Zad 1 - pobieranie plików, zamiana słów
 
-Pobierz plik z adresu https://pastebin.com/raw/XQ12Fx4u, odczytując go i zamieniając wszystkie wystąpienia słowa "wimir" na słowo "wiet". 
+Pobierz plik z adresu https://pastebin.com/raw/XQ12Fx4u, odczytaj go i zamień wszystkie wystąpienia słowa "wimir" na słowo "wiet".
 
 **Komendy**: nano/vim, chmod, wget/curl, sed, cat
 
 ### Zad 2 - szukanie logów
+
 Wyszukaj wszystkie pliki o rozszerzeniu .log w katalogu /var/log (używając komendy find) i przekieruj wyniki wyszukiwania do pliku log_files.txt. Sprawdź, czy zawiera wpisy zawierające słowo "error". Jeśli tak, wyciągnij te linie do pliku error_logs.txt. Usuń wpisy z pliku error_logs.txt, które zawierają słowo "debug". Wyświetl zawartość pliku error_logs.txt.
 
 Komendy: find, grep, sed, cat
